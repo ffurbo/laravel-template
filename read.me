@@ -1,0 +1,30 @@
+*INSTALLATION STEPS*
+
+$docker-compose up -d
+$docker-compose exec apache-php bash
+
+#chown 33:33 /project/
+#chmod g+ws /project/
+#cd /project
+
+#composer create-project --prefer-dist laravel/laravel ./
+
+> check http://localhost:81/ and http://localhost:8081 (phpmyadmin)
+>create database (phpmyadmin)  and setup .env address:db, login:root, passwd:example>
+
+#composer require barryvdh/laravel-debugbar --dev
+#php artisan vendor:publish --provider="Barryvdh\Debugbar\ServiceProvider"
+
+
+#php artisan migrate
+
+#composer require encore/laravel-admin
+#php artisan vendor:publish --provider="Encore\Admin\AdminServiceProvider"
+^^
+>obove will copy [/vendor/encore/laravel-admin/resources/assets] To [/public/vendor/laravel-admin]
+>this dir is excluded by .gitignore so need to re-copy after clone project from git
+
+#php artisan admin:install
+
+#composer require laravel-admin-ext/helpers
+#php artisan admin:import helpers
